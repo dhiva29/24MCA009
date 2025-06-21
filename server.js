@@ -5,11 +5,11 @@ const port = 9876;
 
 app.use(express.json());
 
-// Configuration
+// Configs
 const windowSize = 10;
 let window = [];
 const baseUrl = 'http://20.244.56.144/evaluation-service';
-let authToken = null; // Will be set after auth
+let authToken = null; 
 
 // Map numberId to endpoint paths
 const endpointMap = {
@@ -22,7 +22,6 @@ const endpointMap = {
 // Fetch authorization token
 async function getAuthToken() {
   if (authToken) return authToken;
-  // Use the token you received
   authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiJkaGl2YWthcnIwN0BnbWFpbC5jb20iLCJleHAiOjE3NTA0ODI3NTksImlhdCI6MTc1MDQ4MjQ1OSwiaXNzIjoiQWZmb3JkIE1lZGljYWwgVGVjaG5vbG9naWVzIFByaXZhdGUgTGltaXRlZCIsImp0aSI6ImZlNTQ4ZjNhLWY0YzEtNGQ2YS05NmViLWMzNGM0ZjIwMzY5YSIsImxvY2FsZSI6ImVuLUlOIiwibmFtZSI6ImRoaXZha2FyIHIiLCJzdWIiOiJhZWZlYTZlNC1kMjM2LTRhOGUtYTg3Yy1lM2Y2NWI4NGNhNWUifSwiZW1haWwiOiJkaGl2YWthcnIwN0BnbWFpbC5jb20iLCJuYW1lIjoiZGhpdmFrYXIgciIsInJvbGxObyI6IjI0bWNhMDA5IiwiYWNjZXNzQ29kZSI6IldjVFNLdiIsImNsaWVudElEIjoiYWVmZWE2ZTQtZDIzNi00YThlLWE4N2MtZTNmNjViODRjYTVlIiwiY2xpZW50U2VjcmV0IjoieW11dlRXUll5U3pmYWdSViJ9.r9zojogPQUsiI4rzYLOgZNhaz0eIBaZ5HrzGuP_0VKM';
   return authToken;
 }
